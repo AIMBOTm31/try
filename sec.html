@@ -1,0 +1,275 @@
+from datetime import datetime
+
+# ────────────────────────────────────────────────
+#   >>>  CHANGE DATA & COLUMNS HERE  <<<
+# ────────────────────────────────────────────────
+
+data = [
+    {"name": "VIP AIMBOT", "glory": 46986, "gw_points": 0},
+    {"name": "VIP ARAV", "glory": 19039, "gw_points": 0},
+    {"name": "VIP.SANI", "glory": 8830, "gw_points": 0},
+    {"name": "?TITAN?", "glory": 8148, "gw_points": 0},
+    {"name": "VASU GMR!!", "glory": 6880, "gw_points": 0},
+    {"name": "VIP SHOOTE", "glory": 6838, "gw_points": 0},
+    {"name": "VIP DEV", "glory": 6304, "gw_points": 0},
+    {"name": "VIP JOKER", "glory": 5438, "gw_points": 0},
+    {"name": "?NOBITA", "glory": 5189, "gw_points": 0},
+    {"name": "SK__SAMIULL", "glory": 4971, "gw_points": 0},
+    {"name": "*Rakesh,*", "glory": 4856, "gw_points": 0},
+    {"name": "SALIM", "glory": 4792, "gw_points": 0},
+    {"name": "AMI ?NOBIT", "glory": 4283, "gw_points": 0},
+    {"name": "k/Harsh NH", "glory": 4130, "gw_points": 0},
+    {"name": "SAGAR", "glory": 3734, "gw_points": 0},
+    {"name": "?LEGEN", "glory": 3196, "gw_points": 0},
+    {"name": "VIP MATRIX", "glory": 2944, "gw_points": 0},
+    {"name": "R/k_PREM", "glory": 2693, "gw_points": 0},
+    {"name": "ILLAN", "glory": 2686, "gw_points": 0},
+    {"name": "VIP HUNTER03", "glory": 2453, "gw_points": 0},
+    {"name": "VIP RAICHU", "glory": 2400, "gw_points": 0},
+    {"name": "SF/King\~ {", "glory": 2217, "gw_points": 0},
+    {"name": "VIP MENTIS", "glory": 2172, "gw_points": 0},
+    {"name": "BAD BUNNY", "glory": 2078, "gw_points": 0},
+    {"name": "TGMANTRIE", "glory": 1898, "gw_points": 0},
+    {"name": "Punk5d2M2y", "glory": 1568, "gw_points": 0},
+    {"name": "VIP GOVIND", "glory": 1568, "gw_points": 0},
+    {"name": "CN soumen", "glory": 1537, "gw_points": 0},
+    {"name": "chandan_07", "glory": 1526, "gw_points": 0},
+    {"name": "I*?NOBITA", "glory": 1362, "gw_points": 0},
+    {"name": "KabiR", "glory": 1323, "gw_points": 0},
+    {"name": "बंगाली_बाबा", "glory": 1285, "gw_points": 0},
+    {"name": "MY Love", "glory": 1202, "gw_points": 0},
+    {"name": "SyedSin51220", "glory": 1178, "gw_points": 0},
+    {"name": "IP ROCK", "glory": 1110, "gw_points": 0},
+    {"name": "VIPxOFFICER", "glory": 1071, "gw_points": 0},
+    {"name": "ReaPer exe", "glory": 780, "gw_points": 0},
+    {"name": "i,@@,am,back", "glory": 772, "gw_points": 0},
+    {"name": "Dinesh sen", "glory": 640, "gw_points": 0},
+    {"name": "ZERROOX!!", "glory": 608, "gw_points": 0},
+    {"name": "VIP UDAY.", "glory": 608, "gw_points": 0},
+    {"name": "TP)Hacrrr", "glory": 580, "gw_points": 0},
+    {"name": "*Saksham*143", "glory": 404, "gw_points": 0},
+    {"name": "SF/King", "glory": 329, "gw_points": 0},
+    {"name": "yuvraj73946W", "glory": 318, "gw_points": 0},
+    {"name": "YSONG ARMY", "glory": 300, "gw_points": 0},
+    {"name": "Akash12*900", "glory": 298, "gw_points": 0},
+    {"name": "VIP AIMGOD", "glory": 276, "gw_points": 0},
+    {"name": "RK Toufik", "glory": 270, "gw_points": 0},
+    {"name": "VIP SURESH", "glory": 180, "gw_points": 0},
+    {"name": "y_shubham", "glory": 120, "gw_points": 0},
+    {"name": "P MONU", "glory": 100, "gw_points": 0},
+    {"name": "UTTAM", "glory": 30, "gw_points": 0},
+    {"name": "Unknown", "glory": 10, "gw_points": 0},
+    {"name": "SHIVAM", "glory": 0, "gw_points": 0}
+]
+
+# Default sort: Glory descending
+data.sort(key=lambda x: x["glory"], reverse=True)
+
+columns = [
+    {"header": "Rank",     "key": None,       "class": "rank"},
+    {"header": "Member",   "key": "name",     "class": "name"},
+    {"header": "Glory",    "key": "glory",    "class": "glory",    "format": "{:,}"},
+]
+
+title = "🏆 VIP Glory Leaderboard"
+
+# ────────────────────────────────────────────────
+#       Usually no need to change below
+# ────────────────────────────────────────────────
+
+today_str = datetime.now().strftime("%d %B").lower()          # e.g. "10 march"
+filename = f"{today_str}.html"
+
+html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <style>
+        body {{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117;
+            color: #e6edf3;
+            margin: 0;
+            padding: 40px 20px;
+        }}
+        h1 {{
+            text-align: center;
+            color: #58a6ff;
+            margin-bottom: 40px;
+        }}
+        table {{
+            width: 100%;
+            max-width: 780px;
+            margin: 0 auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: #161b22;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }}
+        th, td {{
+            padding: 14px 12px;
+            text-align: center;
+            border-bottom: 1px solid #30363d;
+        }}
+        th {{
+            background-color: #21262d;
+            color: #8b949e;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }}
+        th:hover {{
+            background-color: #30363d;
+        }}
+        th::after {{
+            content: "";
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.4;
+            font-size: 0.9rem;
+        }}
+        th.sorted-asc::after {{
+            content: "↑";
+            opacity: 1;
+            color: #58a6ff;
+        }}
+        th.sorted-desc::after {{
+            content: "↓";
+            opacity: 1;
+            color: #58a6ff;
+        }}
+        tr:hover {{
+            background-color: #1f6feb22;
+        }}
+
+        /* Column shades */
+        td:nth-child(1) {{ background-color: #1a1f26; }}
+        td:nth-child(2) {{ background-color: #1e242b; }}
+        td:nth-child(3) {{ background-color: #222a32; }}
+
+        .rank     {{ font-weight: bold; color: #ffa657; font-size: 1.05rem; }}
+        .name     {{ font-weight: 500; color: #c9d1d9; }}
+        .glory    {{ font-weight: bold; color: #f0883e; font-size: 1.15rem; }}
+
+        .top3     {{ background-color: rgba(180,140,0,0.15) !important; }}
+        .top3 .name {{ color: #ffd700; font-weight: 600; }}
+
+        /* Header shades */
+        th:nth-child(1) {{ background-color: #2a3038; }}
+        th:nth-child(2) {{ background-color: #2e353d; }}
+        th:nth-child(3) {{ background-color: #323b44; }}
+    </style>
+</head>
+<body>
+    <h1>{title}</h1>
+
+    <table id="leaderboard">
+        <thead>
+            <tr>
+"""
+
+for i, col in enumerate(columns):
+    html += f'                <th data-col="{i}">{col["header"]}</th>\n'
+
+html += """            </tr>
+        </thead>
+        <tbody>
+"""
+
+for rank, member in enumerate(data, 1):
+    row_class = ' class="top3"' if rank <= 3 else ''
+    html += f"            <tr{row_class}>\n"
+
+    for col in columns:
+        if col["key"] is None:
+            value = f"#{rank}"
+            td_class = ' class="rank"'
+        else:
+            value = member.get(col["key"], "—")
+            if "format" in col and value != "—":
+                value = col["format"].format(value)
+            td_class = f' class="{col["class"]}"'
+
+        html += f"                <td{td_class}>{value}</td>\n"
+
+    html += "            </tr>\n"
+
+html += """        </tbody>
+    </table>
+
+    <script>
+    let currentSort = { column: 2, direction: 'desc' };  // default: Glory descending
+
+    // Show initial sort indicator on Glory column
+    document.querySelector('th[data-col="2"]').classList.add('sorted-desc');
+
+    document.querySelectorAll('th').forEach(th => {
+        th.addEventListener('click', () => {
+            const colIndex = parseInt(th.getAttribute('data-col'));
+            let direction = 'asc';
+
+            if (currentSort.column === colIndex) {
+                direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            }
+
+            sortTable(colIndex, direction);
+            currentSort = { column: colIndex, direction: direction };
+
+            // Update visual arrows
+            document.querySelectorAll('th').forEach(t => {
+                t.classList.remove('sorted-asc', 'sorted-desc');
+            });
+            th.classList.add(direction === 'asc' ? 'sorted-asc' : 'sorted-desc');
+        });
+    });
+
+    function sortTable(colIndex, direction) {
+        const table = document.getElementById('leaderboard');
+        const tbody = table.tBodies[0];
+        const rows = Array.from(tbody.rows);
+
+        rows.sort((a, b) => {
+            let aVal = a.cells[colIndex].textContent.trim();
+            let bVal = b.cells[colIndex].textContent.trim();
+
+            if (colIndex === 2) {           // Glory
+                aVal = parseFloat(aVal.replace(/,/g, '')) || 0;
+                bVal = parseFloat(bVal.replace(/,/g, '')) || 0;
+            } else if (colIndex === 1) {    // Name
+                aVal = aVal.toLowerCase();
+                bVal = bVal.toLowerCase();
+            } else if (colIndex === 0) {    // Rank
+                aVal = parseInt(aVal.replace('#', '')) || 999999;
+                bVal = parseInt(bVal.replace('#', '')) || 999999;
+            }
+
+            if (aVal === bVal) return 0;
+            return direction === 'asc' ? (aVal > bVal ? 1 : -1) : (aVal < bVal ? 1 : -1);
+        });
+
+        rows.forEach(row => tbody.appendChild(row));
+
+        // Optional: remove top-3 highlight after sorting
+        // document.querySelectorAll('.top3').forEach(el => el.classList.remove('top3'));
+    }
+    </script>
+
+</body>
+</html>
+"""
+
+with open(filename, "w", encoding="utf-8") as f:
+    f.write(html)
+
+print(f"Leaderboard saved → {filename}")
+print("Open the file in browser → click column headers to sort")
+print("↑ = ascending   ↓ = descending")
